@@ -1,0 +1,28 @@
+server:
+  port: 8123
+spring:
+  application:
+    name: cloud-sl  
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      hbm2ddl:
+        import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+  datasource:                           
+    platform: h2                       
+    schema: classpath:schema.sql        
+    data: classpath:resultentrytwo.sql,classpath:resultentrythree.sql,classpath:resultentrythree1.sql,classpath:resultentrythree2.sql,classpath:resultentrythree3.sql,classpath:resultentrythree4.sql,classpath:resultentryone.sql,classpath:allmechine.sql
+    sql-script-encoding: utf-8    
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
